@@ -51,59 +51,7 @@ class FinancialAnalysisTalib:
                       title='Stock Price with Bollinger Bands')
         fig.show()
 
-    # def calculate_portfolio_weights(self, data):
-    #     # Replace infinite values with NaN
-    #     data = data.replace([float('inf'), float('-inf')], float('nan'))
-        
-    #     # Drop rows with any NaN values
-    #     data = data.dropna()
-        
-    #     # Ensure there's still data left after cleaning
-    #     if data.empty:
-    #         raise ValueError("Data is empty after cleaning. Please check your data for NaNs or infinite values.")
-        
-    #     # Calculate expected annualized returns and risk
-    #     mu = expected_returns.mean_historical_return(data)
-    #     s = risk_models.sample_cov(data)
-        
-    #     # Ensure the covariance matrix is symmetric
-    #     s = (s + s.T) / 2
-    #     print("Covariance matrix:", s)
-        
-    #     # Make sure the covariance matrix is positive semi-definite
-    #     s = np.maximum(s, 0)
-    #     print("Adjusted covariance matrix:", s)
-        
-    #     # Obtain the Efficient Frontier with Maximum Sharpe
-    #     ef = EfficientFrontier(mu, s)
-    #     try:
-    #         weights = ef.max_sharpe()
-    #     except Exception as e:
-    #         print("Error during optimization:", e)
-    #         raise
-        
-    #     # Get interpretable weights
-    #     cleaned_weights = ef.clean_weights()
-    #     print("Cleaned weights:", cleaned_weights)
-        
-    #     # Display portfolio performance
-    #     performance = ef.portfolio_performance(verbose=True)
-        
-    #     # Convert the cleaned weights to a dictionary with tickers as keys
-    #     return cleaned_weights
-
-    
-
-    # def calculate_portfolio_performance(self, data):
-    #     mu = expected_returns.mean_historical_return(data)
-    #     cov = risk_models.sample_cov(data)
-    #     ef = EfficientFrontier(mu, cov)
-    #     weights = ef.max_sharpe()
-    #     portfolio_return, portfolio_volatility, sharpe_ratio = ef.portfolio_performance()
-    #     return portfolio_return, portfolio_volatility, sharpe_ratio
-
-
-    def calculate_portfolio_weights(self, tickers, start_date, end_date):
+        def calculate_portfolio_weights(self, tickers, start_date, end_date):
         data = yf.download(tickers, start=start_date, end=end_date)['Close']
         mu = expected_returns.mean_historical_return(data)
         cov = risk_models.sample_cov(data)
