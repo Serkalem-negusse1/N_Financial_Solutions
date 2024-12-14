@@ -24,6 +24,6 @@ Thumbs.db
 *.xlsx
 
 # Ignore IDE/editor settings
-.vscode/
+
 *.code-workspace
 
