@@ -1,6 +1,7 @@
 # Ignore virtual environments
 myvenv/
 venv/
+talib/
 
 # Ignore Python cache
 __pycache__/
