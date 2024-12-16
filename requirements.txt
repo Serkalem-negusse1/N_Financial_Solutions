@@ -5,7 +5,7 @@ seaborn==0.13.2
 nltk==3.9.1
 textblob==0.18.0.post0
 spaCy==3.8.2
-TA-Lib==0.4.0
+#ta-lib==0.5.1
 pynance==0.0.7
 pyfolio==0.9.2
 yfinance==0.2.18

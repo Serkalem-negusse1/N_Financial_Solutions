@@ -51,7 +51,7 @@ class FinancialAnalysisTalib:
                       title='Stock Price with Bollinger Bands')
         fig.show()
 
-        def calculate_portfolio_weights(self, tickers, start_date, end_date):
+    def calculate_portfolio_weights(self, tickers, start_date, end_date):
         data = yf.download(tickers, start=start_date, end=end_date)['Close']
         mu = expected_returns.mean_historical_return(data)
         cov = risk_models.sample_cov(data)
